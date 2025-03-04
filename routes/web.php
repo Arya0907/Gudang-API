@@ -47,6 +47,7 @@ $router->group(['prefix' => 'packages'], function () use ($router) {
     $router->delete('{id}/force-delete', 'PackageController@forceDelete'); // Hapus permanen
 });
 
+$router->group(['middleware'=>'kurir'], function() use ($router){
 $router->group(['prefix' => 'deliveries'], function () use ($router) {
     $router->get('/', 'DeliveryController@index'); // Get semua pengiriman
     $router->get('{id}', 'DeliveryController@show'); // Get pengiriman by ID
@@ -55,6 +56,7 @@ $router->group(['prefix' => 'deliveries'], function () use ($router) {
     $router->delete('{id}', 'DeliveryController@destroy'); // Soft Delete
     $router->post('{id}/restore', 'DeliveryController@restore'); // Restore pengiriman
     $router->delete('{id}/force-delete', 'DeliveryController@forceDelete'); // Hapus permanen
+    });
 });
 });
 

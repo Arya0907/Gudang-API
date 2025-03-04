@@ -81,6 +81,7 @@ $app->configure('app');
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
+    'kurir' => App\Http\Middleware\KurirMiddleware::class,
 ]);
 
 /*
